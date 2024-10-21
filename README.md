@@ -23,11 +23,16 @@ XGBoost (eXtreme Gradient Boosting) is an optimized and scalable version of grad
 
 ## Project Structure
 
-- **data_processing.py**: Contains the code for data cleaning, preprocessing, and feature engineering (e.g., aggregating daily sales data for each product).
-- **model_training.py**: Contains the code to train and evaluate the XGBoost model, including hyperparameter tuning using `GridSearchCV`.
-- **requirements.txt**: Lists all required dependencies for the project.
-- **README.md**: This documentation file.
-- **model_training.ipynb**: This documentation file.
+- **chatgpt copy.ipynb**
+  - Contains the code for data cleaning, preprocessing, and feature engineering (e.g., aggregating daily sales data for each product).
+- **CodeChallenge_Dataset_2021-2023_Set 1.csv**
+  - Contains the code to train and evaluate the XGBoost model, including hyperparameter tuning using `GridSearchCV`.
+- **CodeChallenge_Dataset_2021-2023_Set 2.csv**
+  - Set 2 dataset
+- **requirements.txt**
+  - Lists all required dependencies for the project.
+- **README.md**:
+  - This is the documentation file.
 
 ## Features
 
