@@ -38,6 +38,14 @@ XGBoost (eXtreme Gradient Boosting) is an optimized and scalable version of grad
 
 - **Data Preprocessing**: 
   - Aggregates the daily sales data by summing up the total amount per `ProductID` for each day.
+  
+    ```python
+    df = df.groupby(['Date', 'ProductId'])['Amount'].sum().reset_index()
+  - Tokenise the `ProductID`
+
+    ``` python
+    le = LabelEncoder()
+    df['ProductId'] = le.fit_transform(df['ProductId'])
   - Handles missing or incorrect values by removing negative values from the `Amount` column.
   
 - **Sales Prediction Model**: 
