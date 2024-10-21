@@ -4,7 +4,7 @@
 The purpose of this model is to predict future sales based on historical data, using XGBoost, a powerful machine learning algorithm. In this project, sales data are aggregated by day and product, and the total sales amount is used as the target variable to train the model. The model is trained using features like the date and the total amount of sales for a product on that date, and it outputs future sales predictions.
 
 ## What is XGBoost?
-!(https://miro.medium.com/v2/resize:fit:1000/0*zdmqFZ2nooBRedqC.png)
+![XBG Training Model](https://miro.medium.com/v2/resize:fit:1000/0*zdmqFZ2nooBRedqC.png)
 XGBoost (eXtreme Gradient Boosting) is an optimized and scalable version of gradient boosting, a machine learning algorithm that builds predictive models by combining the strengths of many simpler models (called weak learners), usually decision trees. It is known for its performance and speed, making it one of the most popular algorithms for structured/tabular data.
 
 ### Parameter Tuning
