@@ -9,7 +9,7 @@ XGBoost (eXtreme Gradient Boosting) is an optimized and scalable version of grad
 
 ### Parameter Tuning
 - n_estimators: 
-The number of trees (iterations) in the ensemble.
+  - The number of trees (iterations) in the ensemble.
 - max_depth
   - Maximum depth of each tree, controlling how complex the individual trees are.
 - learning_rate
