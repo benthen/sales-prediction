@@ -18,8 +18,8 @@ XGBoost (eXtreme Gradient Boosting) is an optimized and scalable version of grad
     python -m venv venv
   
   - Use the virtual environment to install the required packages
-  ```python
-  .\venv\Scripts\activate
+      ```python
+      .\venv\Scripts\activate
 
 ## Install the required packages
   - ```python
@@ -81,40 +81,40 @@ XGBoost (eXtreme Gradient Boosting) is an optimized and scalable version of grad
 
   - Feature Engineering
     - add the features of the dataset in terms of day, month, year, dayofweek, dayofmonth, dayofyear, weekday, quarter, weekofyear, is_month_end, is_weekend, weekday_month_interaction
-    ```python
-    df['day'] = df.index.day
-    df['month'] = df.index.month
-    df['weekday'] = df.index.weekday
-    df['dayofweek'] = df.index.dayofweek
-    df['quarter'] = df.index.quarter
-    df['month'] = df.index.month
-    df['year'] = df.index.year
-    df['dayofyear'] = df.index.dayofyear
-    df['dayofmonth'] = df.index.day
-    df['weekofyear'] = df.index.isocalendar().week
-    df['is_month_end'] = df.index.is_month_end.astype(int)
-    df['is_weekend'] = df['weekday'].apply(lambda x: 1 if x >= 5 else 0)
-    df['weekday_month_interaction'] = df['weekday'] * df['month']
+        ```python
+        df['day'] = df.index.day
+        df['month'] = df.index.month
+        df['weekday'] = df.index.weekday
+        df['dayofweek'] = df.index.dayofweek
+        df['quarter'] = df.index.quarter
+        df['month'] = df.index.month
+        df['year'] = df.index.year
+        df['dayofyear'] = df.index.dayofyear
+        df['dayofmonth'] = df.index.day
+        df['weekofyear'] = df.index.isocalendar().week
+        df['is_month_end'] = df.index.is_month_end.astype(int)
+        df['is_weekend'] = df['weekday'].apply(lambda x: 1 if x >= 5 else 0)
+        df['weekday_month_interaction'] = df['weekday'] * df['month']
     - add the lag feature based on the past sales amount to help predict the future sales
-    ```python
-    df['Amount_lag_1'] = df['Amount'].shift(1)  # daily lag feature
-    df['Amount_lag_7'] = df['Amount'].shift(7)  # weekly lag feature
-    df['Amount_lag_30'] = df['Amount'].shift(30)  # monthly lag feature
+        ```python
+        df['Amount_lag_1'] = df['Amount'].shift(1)  # daily lag feature
+        df['Amount_lag_7'] = df['Amount'].shift(7)  # weekly lag feature
+        df['Amount_lag_30'] = df['Amount'].shift(30)  # monthly lag feature
 
   - Rolling window
     - calculate statistics such as mean based on specified window size
-    ```python
-    df['Amount_rolling_mean_3'] = df['Amount'].rolling(window=3).mean()
-    df['Amount_rolling_mean_7'] = df['Amount'].rolling(window=7).mean()
-    df['Amount_rolling_mean_30'] = df['Amount'].rolling(window=30).mean()
+        ```python
+        df['Amount_rolling_mean_3'] = df['Amount'].rolling(window=3).mean()
+        df['Amount_rolling_mean_7'] = df['Amount'].rolling(window=7).mean()
+        df['Amount_rolling_mean_30'] = df['Amount'].rolling(window=30).mean()
 
   - Exponential Moving Averages
     - put more weight to the current data compared to old data
     - can react to recent change faster than simple moving average
-    ```python
-    df['ema_3'] = df['Amount'].ewm(span=3).mean()
-    df['ema_7'] = df['Amount'].ewm(span=7).mean()
-    df['ema_30'] = df['Amount'].ewm(span=30).mean()
+        ```python
+        df['ema_3'] = df['Amount'].ewm(span=3).mean()
+        df['ema_7'] = df['Amount'].ewm(span=7).mean()
+        df['ema_30'] = df['Amount'].ewm(span=30).mean()
   
 - **Sales Prediction Model**: 
   - Utilizes the XGBoost Regressor (`XGBRegressor`) to train a sales prediction model.
