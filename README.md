@@ -25,20 +25,6 @@ XGBoost (eXtreme Gradient Boosting) is an optimized and scalable version of grad
   - ```python
     pip install -r requirements.txt
 
-### Parameter Tuning
-- n_estimators: 
-  - The number of trees (iterations) in the ensemble.
-- max_depth
-  - Maximum depth of each tree, controlling how complex the individual trees are.
-- learning_rate
-  - Controls the contribution of each tree to the final prediction, affecting convergence speed.
-- subsample
-  - The fraction of samples used to build each tree, used for regularization.
-- colsample_bytree
-  - The fraction of features used to build each tree.
-- lambda (L2 regularization) and alpha (L1 regularization)
-  - Parameters to reduce model complexity and prevent overfitting.
-
 ## Project Structure
 
 - **sales_prediction.py**
@@ -66,6 +52,7 @@ XGBoost (eXtreme Gradient Boosting) is an optimized and scalable version of grad
     ``` python
     le = LabelEncoder()
     df['ProductId'] = le.fit_transform(df['ProductId'])
+  ![Before Processing](/result/before_processing.png)
   - Handles missing or incorrect values by removing negative values from the `Amount` column.
     ``` python
     df = df[df['Amount'] >= 0]
@@ -78,6 +65,7 @@ XGBoost (eXtreme Gradient Boosting) is an optimized and scalable version of grad
 
     # Filter out outliers
     df = df[~((df['Amount'] < (Q1 - 1.5 * IQR)) | (df['Amount'] > (Q3 + 1.5 * IQR)))]
+  ![After Processing](/result/after_processing.png)
 
   - Feature Engineering
     - add the features of the dataset in terms of day, month, year, dayofweek, dayofmonth, dayofyear, weekday, quarter, weekofyear, is_month_end, is_weekend, weekday_month_interaction
@@ -120,12 +108,29 @@ XGBoost (eXtreme Gradient Boosting) is an optimized and scalable version of grad
   - Utilizes the XGBoost Regressor (`XGBRegressor`) to train a sales prediction model.
   - Uses `GridSearchCV` for hyperparameter tuning to find the best combination of hyperparameters.
   
-## Data Preparation
+# Hyperparameter of the training model
+### GridSearchCV Hyperparameter
+- n_estimators: 
+  - The number of trees (iterations) in the ensemble.
+- max_depth
+  - Maximum depth of each tree, controlling how complex the individual trees are.
+- learning_rate
+  - Controls the contribution of each tree to the final prediction, affecting convergence speed.
+- subsample
+  - The fraction of samples used to build each tree, used for regularization.
+- colsample_bytree
+  - The fraction of features used to build each tree.
+- lambda (L2 regularization)
+  - Parameters to reduce model complexity and prevent overfitting.
 
-Ensure the data is cleaned and aggregated properly before feeding it into the model. The key steps for data preparation include:
+> The best value of the hyperparameter is 
+  - colsample_bytree: 1.0
+  - learning_rate: 0.05
+  - max_depth: 7
+  - n_estimators: 300
+  - subsample: 0.8
+  - lambda: 1
 
-1. **Summing Up the Total Sales Per Day**: 
-   The `Amount` for each product per day is summed to provide the target for training the model.
+# Result of the model training
+![Model Training](/result/model_training.png)
 
-   ```python
-   daily_sales = data.groupby(['Date', 'ProductId']).agg({'Amount': 'sum'}).reset_index()
