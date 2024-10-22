@@ -38,11 +38,12 @@ df = df.groupby(['Date', 'ProductId'])['Amount'].sum().reset_index()
 df['ProductId'] = le.fit_transform(df['ProductId'])
 df = df.set_index('Date')
 
-# df['Amount'].plot(style='.',
-#         figsize=(15, 15),
-#         color=color_pal[0],
-#         title='Sales Prediction by Date and Product ID')
-# plt.show()
+# plot the dataset that has been preprocessed
+df['Amount'].plot(style='.',
+        figsize=(15, 15),
+        color=color_pal[0],
+        title='Sales Prediction by Date and Product ID')
+plt.savefig('D:/programming/sales prediction/result/before_processing.png')
 
 # remove the negative value which is the outlier
 df = df[df['Amount'] >= 0]
@@ -55,11 +56,12 @@ IQR = Q3 - Q1
 # Filter out outliers
 df = df[~((df['Amount'] < (Q1 - 1.5 * IQR)) | (df['Amount'] > (Q3 + 1.5 * IQR)))]
 
-# df['Amount'].plot(style='.',
-#         figsize=(20, 15),
-#         color=color_pal[0],
-#         title='Sales Prediction by Date and Product ID')
-# plt.show()
+# plot the dataset that has been preprocessed
+df['Amount'].plot(style='.',
+        figsize=(20, 15),
+        color=color_pal[0],
+        title='Sales Prediction by Date and Product ID')
+plt.savefig('D:/programming/sales prediction/result/after_processing.png')
 
 # create the features
 df['day'] = df.index.day
@@ -145,14 +147,15 @@ epochs = len(results['validation_0']['rmse'])
 x_axis = range(0, epochs)
 
 # Plot RMSE
-# plt.figure(figsize=(10,5))
-# plt.plot(x_axis, results['validation_0']['rmse'], label='Train RMSE')
-# plt.plot(x_axis, results['validation_1']['rmse'], label='Validation RMSE')
-# plt.xlabel('Epochs')
-# plt.ylabel('RMSE')
-# plt.title('XGBoost RMSE Over Epochs After GridSearchCV')
-# plt.legend()
-# plt.show()
+# plot the training and validation result
+plt.figure(figsize=(10,5))
+plt.plot(x_axis, results['validation_0']['rmse'], label='Train RMSE')
+plt.plot(x_axis, results['validation_1']['rmse'], label='Validation RMSE')
+plt.xlabel('Epochs')
+plt.ylabel('RMSE')
+plt.title('XGBoost RMSE Over Epochs After GridSearchCV')
+plt.legend()
+plt.savefig('D:/programming/sales prediction/result/after_processing.png')
 
 print(f"Best Parameters: {grid_search.best_params_}")
 print(f"RMSE: {rmse}")
