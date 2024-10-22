@@ -155,7 +155,7 @@ plt.xlabel('Epochs')
 plt.ylabel('RMSE')
 plt.title('XGBoost RMSE Over Epochs After GridSearchCV')
 plt.legend()
-plt.savefig('D:/programming/sales prediction/result/after_processing.png')
+plt.savefig('D:/programming/sales prediction/result/model_training.png')
 
 print(f"Best Parameters: {grid_search.best_params_}")
 print(f"RMSE: {rmse}")
