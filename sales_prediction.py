@@ -82,16 +82,19 @@ df['weekday_month_interaction'] = df['weekday'] * df['month']
 df['Amount_lag_1'] = df['Amount'].shift(1)  # Sales from the previous day
 df['Amount_lag_7'] = df['Amount'].shift(7)  # Sales from 7 days ago
 df['Amount_lag_30'] = df['Amount'].shift(30)  # Sales from previous month
+df['Amount_lag_180'] = df['Amount'].shift(180)  # Sales from half year
 
 # rolling windows
 df['Amount_rolling_mean_3'] = df['Amount'].rolling(window=3).mean()  # 3-day rolling mean
 df['Amount_rolling_mean_7'] = df['Amount'].rolling(window=7).mean()  # 7-day rolling mean
 df['Amount_rolling_mean_30'] = df['Amount'].rolling(window=30).mean()  # 30-day rolling mean
+df['Amount_rolling_mean_180'] = df['Amount'].rolling(window=180).mean()  # 180-day rolling mean
 
 # exponential moving averages
 df['ema_3'] = df['Amount'].ewm(span=3).mean()
 df['ema_7'] = df['Amount'].ewm(span=7).mean()
 df['ema_30'] = df['Amount'].ewm(span=30).mean()
+df['ema_180'] = df['Amount'].ewm(span=180).mean()
 
 # Cumulative sales trend
 df['cumulative_sales'] = df['Amount'].cumsum()
