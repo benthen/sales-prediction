@@ -134,3 +134,12 @@ XGBoost (eXtreme Gradient Boosting) is an optimized and scalable version of grad
 # Result of the model training
 ![Model Training](/result/model_training.png)
 
+# Data Preprocessing of Dataset 2
+![Dataset 2](/result/Set-2-before_processing.png)
+![Dataset 2](/result/Set-2-after_processing.png)
+
+# Result of the evaluation
+![Evaluation](/result/evaluation.png)
+
+# RMSE Comparison between Training and Evaluation
+![RMSE](/result/rmse.png)
