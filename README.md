@@ -65,7 +65,6 @@ XGBoost (eXtreme Gradient Boosting) is an optimized and scalable version of grad
 
     # Filter out outliers
     df = df[~((df['Amount'] < (Q1 - 1.5 * IQR)) | (df['Amount'] > (Q3 + 1.5 * IQR)))]
-  ![After Processing](/result/Set-1-after_processing.png)
 
   - Feature Engineering
     - add the features of the dataset in terms of day, month, year, dayofweek, dayofmonth, dayofyear, weekday, quarter, weekofyear, is_month_end, is_weekend, weekday_month_interaction
@@ -136,7 +135,6 @@ XGBoost (eXtreme Gradient Boosting) is an optimized and scalable version of grad
 
 # Data Preprocessing of Dataset 2
 ![Dataset 2](/result/Set-2-before_processing.png)
-![Dataset 2](/result/Set-2-after_processing.png)
 
 # Result of the evaluation
 ![Evaluation](/result/evaluation.png)
