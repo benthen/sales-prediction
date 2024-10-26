@@ -140,6 +140,6 @@ XGBoost (eXtreme Gradient Boosting) is an optimized and scalable version of grad
 ![Evaluation](/result/evaluation.png)
 
 # RMSE Comparison between Training and Evaluation
-    ![RMSE](/result/rmse.png)
-    - Training RMSE: 1521.81
-    - Evaluation RMSE: 15429.64
+  ![RMSE](/result/rmse.png)
+  - Training RMSE: 1521.81
+  - Evaluation RMSE: 15429.64
