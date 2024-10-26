@@ -47,13 +47,6 @@ def preprocess_data(dataset, name):
     # Filter out outliers
     df = df[~((df['Amount'] < (Q1 - 1.5 * IQR)) | (df['Amount'] > (Q3 + 1.5 * IQR)))]
 
-    # plot the dataset that has been preprocessed
-    df['Amount'].plot(style='.',
-            figsize=(20, 15),
-            color=color_pal[0],
-            title=f'{name} Sales Prediction by Date and Product ID')
-    plt.savefig(f'D:/programming/sales prediction/result/{name}-after_processing.png')
-
     return df
 
 # this function is used for feature engineering and moving averages
@@ -210,7 +203,7 @@ def evaluate_model(training_dataset, evaluation_dataset):
     print(f'RMSE Score of Evaluation: {evaluation_rmse:0.2f}')
     
     # Plotting the bar chart of the training rmse and evaluation rmse
-    plt.figure(figsize=(6, 4))
+    plt.figure(figsize=(10, 5))
     plt.bar(['Training RMSE', 'Evaluation RMSE'], [training_rmse, evaluation_rmse], color=['blue', 'green'])
     plt.title('RMSE of Training and Evaluation')
     plt.savefig('D:/programming/sales prediction/result/rmse.png')
