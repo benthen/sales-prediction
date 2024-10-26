@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 from sklearn.metrics import mean_squared_error
-from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import  LabelEncoder
 plt.style.use('fivethirtyeight')
 le = LabelEncoder()
@@ -34,7 +33,7 @@ def preprocess_data(dataset, name):
     df['Amount'].plot(style='.',
             figsize=(15, 15),
             color=color_pal[0],
-            title='Sales Prediction by Date and Product ID')
+            title=f'{name} Sales Prediction by Date and Product ID')
     plt.savefig(f'D:/programming/sales prediction/result/{name}-before_processing.png')
 
     # remove the negative value which is the outlier
@@ -52,7 +51,7 @@ def preprocess_data(dataset, name):
     df['Amount'].plot(style='.',
             figsize=(20, 15),
             color=color_pal[0],
-            title='Sales Prediction by Date and Product ID')
+            title=f'{name} Sales Prediction by Date and Product ID')
     plt.savefig(f'D:/programming/sales prediction/result/{name}-after_processing.png')
 
     return df
