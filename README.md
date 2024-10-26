@@ -52,7 +52,7 @@ XGBoost (eXtreme Gradient Boosting) is an optimized and scalable version of grad
     ``` python
     le = LabelEncoder()
     df['ProductId'] = le.fit_transform(df['ProductId'])
-  ![Before Processing](/result/before_processing.png)
+  ![Before Processing](/result/Set 1-before_processing.png)
   - Handles missing or incorrect values by removing negative values from the `Amount` column.
     ``` python
     df = df[df['Amount'] >= 0]
@@ -65,7 +65,7 @@ XGBoost (eXtreme Gradient Boosting) is an optimized and scalable version of grad
 
     # Filter out outliers
     df = df[~((df['Amount'] < (Q1 - 1.5 * IQR)) | (df['Amount'] > (Q3 + 1.5 * IQR)))]
-  ![After Processing](/result/after_processing.png)
+  ![After Processing](/result/Set 1-after_processing.png)
 
   - Feature Engineering
     - add the features of the dataset in terms of day, month, year, dayofweek, dayofmonth, dayofyear, weekday, quarter, weekofyear, is_month_end, is_weekend, weekday_month_interaction
