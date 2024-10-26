@@ -129,7 +129,7 @@ def split_data(df):
 def train_model(training_dataset):
     
     # preprocess the training dataset
-    processed_data = create_feature(preprocess_data(training_dataset, 'Set 1'))
+    processed_data = create_feature(preprocess_data(training_dataset, 'Set-1'))
     
     # split the preprocessed dataset into training and testing data
     X_train, X_test, y_train, y_test, test = split_data(processed_data)
@@ -184,7 +184,7 @@ def evaluate_model(training_dataset, evaluation_dataset):
     reg_model, training_rmse = train_model(training_dataset)
 
     # preprocess the evaluation dataset
-    processed_dataset = create_feature(preprocess_data(evaluation_dataset, 'Set 2'))
+    processed_dataset = create_feature(preprocess_data(evaluation_dataset, 'Set-2'))
     
     # assign all the columns to FEATURES except for 'Amount'
     FEATURES = [col for col in processed_dataset.columns if col != 'Amount']
