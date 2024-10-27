@@ -122,7 +122,7 @@ XGBoost (eXtreme Gradient Boosting) is an optimized and scalable version of grad
 - lambda (L2 regularization)
   - Parameters to reduce model complexity and prevent overfitting.
 
-> The best value of the hyperparameter is 
+**The best value of the hyperparameter is** 
   - colsample_bytree: 1.0
   - learning_rate: 0.05
   - max_depth: 7
@@ -131,15 +131,23 @@ XGBoost (eXtreme Gradient Boosting) is an optimized and scalable version of grad
   - lambda: 1
 
 # Result of the model training
-![Model Training](/result/model_training.png)
+  ![Model Training](/result/model_training.png)
+  - The red line is the prediction of the test data, while the blue line is the test data 
 
 # Data Preprocessing of Dataset 2
-![Dataset 2](/result/Set-2-before_processing.png)
+  ![Dataset 2](/result/Set-2-before_processing.png)
+  - This is how the set 2 data looks like 
 
 # Result of the evaluation
-![Evaluation](/result/evaluation.png)
+  ![Evaluation](/result/evaluation.png)
+  - The red line is the prediction of the set 2 data, while the blue line is the set 2 data
+  - Both lines have the deviations where the model cannot predict the sales of set 2 accurately
 
 # RMSE Comparison between Training and Evaluation
   ![RMSE](/result/rmse.png)
   - Training RMSE: 1521.81
   - Evaluation RMSE: 15429.64
+
+## High Difference between Training and Evaluation RMSE
+  - The sales data in set 2 contains sales pattern that has not been seen by the training model
+  - Hence the model cannot predict the sales accurately in set 2
