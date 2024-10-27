@@ -9,6 +9,9 @@ XGBoost (eXtreme Gradient Boosting) is an optimized and scalable version of grad
 
 # Python Setup
 
+## Install Python
+- https://www.python.org/downloads/
+
 ## Install package virtualenv
 - ```python
     pip install virtualenv
