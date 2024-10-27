@@ -155,7 +155,7 @@ def train_model(training_dataset):
 
     # plot the graph of the prediction result and save to directory
     ax = test[['Amount']].plot(figsize=(15, 5))
-    test['prediction'].plot(ax=ax, style='.')
+    test['prediction'].plot(ax=ax, style='--')
     plt.legend(['Truth Data', 'Predictions'])
     ax.set_title('Raw Data and Prediction')
     plt.savefig('D:/programming/sales prediction/result/model_training.png')
